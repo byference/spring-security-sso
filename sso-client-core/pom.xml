@@ -5,18 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.byference</groupId>
         <artifactId>spring-security-sso</artifactId>
+        <groupId>com.github.byference</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sso-client2</artifactId>
+    <artifactId>sso-client-core</artifactId>
+
 
     <dependencies>
         <dependency>
-            <groupId>com.github.byference</groupId>
-            <artifactId>sso-client-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

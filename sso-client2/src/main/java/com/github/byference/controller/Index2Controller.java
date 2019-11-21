@@ -1,6 +1,5 @@
 package com.github.byference.controller;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,18 +18,19 @@ public class Index2Controller {
         return "index.html";
     }
 
+
     @GetMapping("user")
     @ResponseBody
-    public Object user() {
+    public String user() {
 
-        return SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return "user";
     }
 
     @GetMapping("admin")
     @ResponseBody
-    public Object admin() {
+    public String admin() {
 
-        return SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return "admin";
     }
 
 }
