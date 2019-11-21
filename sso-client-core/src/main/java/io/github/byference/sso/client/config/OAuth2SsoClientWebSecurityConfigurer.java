@@ -40,7 +40,7 @@ public class OAuth2SsoClientWebSecurityConfigurer extends WebSecurityConfigurerA
     public void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers(OAuth2SsoProperties.getAllowedUrls()).permitAll()
+                .antMatchers(OAuth2SsoProperties.getPermitUrls()).permitAll()
                 .anyRequest().authenticated();
 
         http.exceptionHandling()

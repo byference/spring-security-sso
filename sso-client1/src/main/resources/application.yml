@@ -14,7 +14,7 @@ security:
     resource:
       jwt:
         key-uri: http://localhost:8080/sso/oauth/token_key
-    allowed-urls:
+    permit-urls:
       - /user
 #logging:
 #  level:

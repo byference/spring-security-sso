@@ -15,9 +15,9 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
 public class OAuth2SsoProperties {
 
     /**
-     * allowed-urls
+     * permit-urls
      */
-    private String[] allowedUrls = {};
+    private String[] permitUrls = {};
 
 
     @NestedConfigurationProperty
