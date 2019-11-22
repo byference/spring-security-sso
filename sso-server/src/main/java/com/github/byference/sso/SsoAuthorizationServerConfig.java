@@ -7,14 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author byference
@@ -49,33 +42,8 @@ public class SsoAuthorizationServerConfig extends AuthorizationServerConfigurerA
     }
 
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
-
-        endpoints.tokenStore(jwtTokenStore()).accessTokenConverter(jwtAccessTokenConverter());
-        DefaultTokenServices tokenServices = (DefaultTokenServices) endpoints.getDefaultAuthorizationServerTokenServices();
-        tokenServices.setTokenStore(endpoints.getTokenStore());
-        tokenServices.setSupportRefreshToken(true);
-        tokenServices.setClientDetailsService(endpoints.getClientDetailsService());
-        tokenServices.setTokenEnhancer(endpoints.getTokenEnhancer());
-        tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(8));
-        endpoints.tokenServices(tokenServices);
-    }
-
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) {
-        // isAuthenticated()
-        security.tokenKeyAccess("permitAll()");
-    }
-
-    @Bean
-    public TokenStore jwtTokenStore() {
-        return new JwtTokenStore(jwtAccessTokenConverter());
-    }
-
-    @Bean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey("client");
-        return converter;
+    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+        //允许表单认证
+        oauthServer.allowFormAuthenticationForClients();
     }
 }

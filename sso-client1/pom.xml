@@ -12,4 +12,12 @@
 
     <artifactId>sso-client1</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.byference</groupId>
+            <artifactId>sso-client-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 </project>
