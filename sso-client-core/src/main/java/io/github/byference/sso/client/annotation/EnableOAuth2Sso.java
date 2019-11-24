@@ -1,6 +1,6 @@
 package io.github.byference.sso.client.annotation;
 
-import io.github.byference.sso.client.autoconfigure.OAuth2SsoDefaultConfiguration;
+import io.github.byference.sso.client.autoconfigure.OAuth2SsoDefaultConfigurer;
 import io.github.byference.sso.client.config.OAuth2SsoClientWebSecurityConfigurer;
 import org.springframework.context.annotation.Import;
 
@@ -15,6 +15,6 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import({OAuth2SsoDefaultConfiguration.class, OAuth2SsoClientWebSecurityConfigurer.class})
+@Import({OAuth2SsoDefaultConfigurer.class, OAuth2SsoClientWebSecurityConfigurer.class})
 public @interface EnableOAuth2Sso {
 }
