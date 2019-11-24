@@ -1,24 +1,8 @@
 ## spring-security-sso
 
 
-### TODO LIST
-- ~~permit all 提供外部化配置~~
-- ~~queryString 加密~~
-- ~~client / server 提供 Enable* 注解  替换 @ComponentScan~~
-- ~~去除无用注释~~
-- ~~类重命名~~
-- ~~完善 OAuth2ClientAuthenticationToken~~
-
-- 测试 logout （登出删除cookie）
-- 提供log 工具类
-
----
-### 重构
-- OAuth2ClientContextFilter ，UserRedirectRequiredException 来替代 provider 方式
 
 
-
----
 ### 授权码模式
 
 ~~~
@@ -32,7 +16,6 @@
 
 
 
----
 ### 数据库存储
 ~~~sql
 DROP TABLE IF EXISTS `oauth_client_details`;
